@@ -84,8 +84,10 @@
   /* ── SCREEN 1 ── */
   #screen1 {
     background: var(--dark);
-    position: relative;
   }
+
+  /* pseudo-elements need a positioned ancestor — use the ::before/::after on #screen1
+     which inherits position:absolute from .screen, so they work fine */
 
   #screen1::before {
     content: '';
@@ -131,8 +133,8 @@
     align-items: center;
     text-align: center;
     animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
-    /* padding horizontal only; vertical handled by children */
     padding: 0;
+    margin: auto 0;
   }
 
   @keyframes fadeUp {
